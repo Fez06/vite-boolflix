@@ -1,6 +1,7 @@
 <script>
 
 export default {
+  name: 'card',
   data() {
     return {
       
@@ -8,16 +9,17 @@ export default {
   },
   
   props: {
+    info: Object,
     title: String,
     originalTitle: String,
     lang: String,
-    vote: String
+    vote: ''
   }
 }
 </script>
 
 <template>
-    <div> merda
+    <div> 
         <p>{{ title }}</p>
         <p>{{ originalTitle }}</p>
         <p>{{ lang }}</p>

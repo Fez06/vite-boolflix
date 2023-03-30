@@ -25,17 +25,17 @@ export default {
     computed: {
         search() {
             //console.log(store.apiKey)
-            console.log(store.searchKey)
-            axios.get('https://api.themoviedb.org/3/search/movie', {
+            console.log(this.store.searchKey)
+            axios.get(this.store.apiUrl, {
                 params: {
-                    api_key: store.apiKey,
-                    query: store.searchKey
+                    api_key:this.store.apiKey,
+                    query: this.store.searchKey
                 }
             }).then(response => {
                 console.log('chiamata effettuata')
                 this.store.filteredMovies = response.data.results
                 console.log(response)
-                console.log(store.filteredMovies)
+                console.log(this.store.filteredMovies)
             })
         }
     }
@@ -48,9 +48,17 @@ export default {
         <input type="text" placeholder="cerca un film o una serie" v-model="store.searchKey">
         <button @click="search">search</button>
     </div>
-    <div v-for="movie in filteredMovies">
-        <CardsApp/>
-    </div>
+
+    <ul>
+        <li v-for="(film,index) in this.store.filteredMovies">
+            <CardsApp
+            :title="this.store.filteredMovies[index].title"
+            :originalTitle="this.store.filteredMovies[index].original_title"
+            :lang="this.store.filteredMovies[index].original_language"
+            :vote="this.store.filteredMovies[index].vote_average"/>
+        </li>
+        
+    </ul>
 </template>
 
 <style scoped>
