@@ -1,5 +1,5 @@
 <script >
-import { store } from '../store.js';
+import { store } from '../store'
 import axios from 'axios';
 
 import CardsApp from './CardsApp.vue';

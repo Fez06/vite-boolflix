@@ -1,5 +1,5 @@
 <script>
-import {store} from './store.js'
+import {store} from './store'
 import SearchbarApp from './components/SearchbarApp.vue';
 
 
