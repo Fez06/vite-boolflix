@@ -51,11 +51,7 @@ export default {
 
     <ul>
         <li v-for="(film,index) in this.store.filteredMovies">
-            <CardsApp
-            :title="this.store.filteredMovies[index].title"
-            :originalTitle="this.store.filteredMovies[index].original_title"
-            :lang="this.store.filteredMovies[index].original_language"
-            :vote="this.store.filteredMovies[index].vote_average"/>
+            <CardsApp :info="film"/>
         </li>
         
     </ul>

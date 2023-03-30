@@ -9,21 +9,21 @@ export default {
   },
   
   props: {
-    info: Object,
-    title: String,
-    originalTitle: String,
-    lang: String,
-    vote: ''
+    info: Object
+    // title: String,
+    // originalTitle: String,
+    // lang: String,
+    // vote: ''
   }
 }
 </script>
 
 <template>
     <div> 
-        <p>{{ title }}</p>
-        <p>{{ originalTitle }}</p>
-        <p>{{ lang }}</p>
-        <p>{{ vote }}</p>
+        <p>{{ info.title }}</p>
+        <p>{{ info.original_title }}</p>
+        <p>{{ info.original_language }}</p>
+        <p>{{ info.vote_average }}</p>
     </div>
 </template>
 
