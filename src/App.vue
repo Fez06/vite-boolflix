@@ -7,8 +7,10 @@ export default {
   data() {
     return {
       store,
-      SearchbarApp
     }
+  },
+  components: {
+    SearchbarApp
   }
 }
 </script>
