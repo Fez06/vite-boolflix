@@ -57,5 +57,14 @@ export default {
     </ul>
 </template>
 
-<style scoped>
+<style lang='scss' scoped>
+ul {
+    list-style: none;
+    li {
+        border: 1px solid green;
+        width: 250px;
+        padding: 10px;
+        margin: 10px;
+    }
+}
 </style>
