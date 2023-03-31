@@ -1,11 +1,12 @@
 <script>
 import CountryFlag from 'vue-country-flag-next'
+import { store } from '../store'
 
 export default {
   name: 'card',
   data() {
     return {
-      
+      store
     }
   },
 
@@ -36,15 +37,12 @@ export default {
           default: 
           return this.info.original_language;
       }
-    },
-    getSeriesName() {
-      switch(this.info.title) {
-        case info.name:
-          return 'title';
-
-        
-          default: 
-          return this.info.title;
+    }
+  },
+  methods: {
+    alertMissPic() {
+      if (src === null) {
+        return alt='immagine non disponibile'
       }
     }
   }
@@ -52,13 +50,18 @@ export default {
 </script>
 
 <template>
-    <div> 
-        <p>{{ info.title || info.name }}</p>
-        <p>{{ info.original_title || info.original_name }}</p>
-        <p>{{ getLanguage }}</p>
-        <p>{{ info.vote_average }}</p>
-        <country-flag :country= getLanguage size='big'/>
+  <div> 
+    <div>
+      <img alertMissPic :src='this.store.baseUrlPic + this.store.picSize + info.poster_path' alt="film poster">
     </div>
+
+    <p>{{ info.title || info.name }}</p>
+    <p>{{ info.original_title || info.original_name }}</p>
+    <p>{{ getLanguage }}</p>
+    <p>{{ info.vote_average }}</p>
+    <country-flag :country= getLanguage size='big'/>
+        
+  </div>
 </template>
 
 <style scoped>

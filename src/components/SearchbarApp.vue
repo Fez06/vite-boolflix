@@ -103,9 +103,10 @@ ul {
     list-style: none;
     li {
         border: 1px solid green;
-        width: 250px;
+        width: 380px;
         padding: 10px;
         margin: 10px;
+        text-align: center;
     }
 }
 </style>
