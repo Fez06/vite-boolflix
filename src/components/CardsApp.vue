@@ -2,6 +2,7 @@
 import CountryFlag from 'vue-country-flag-next'
 import { store } from '../store'
 
+
 export default {
   name: 'card',
   data() {
@@ -11,7 +12,8 @@ export default {
   },
 
   components: {
-    CountryFlag
+    CountryFlag,
+    
   },
   
   props: {
@@ -40,10 +42,14 @@ export default {
     }
   },
   methods: {
-    alertMissPic() {
-      if (src === null) {
-        return alt='immagine non disponibile'
-      }
+    // alertMissPic() {
+    //   if (info.poster_path = null) {
+    //     console.log(`${info.title || info.name} non ha un poster`)
+    //   }
+    // }
+    filmRank() {
+      return Math.ceil(this.info.vote_average/2)
+      
     }
   }
 }
@@ -58,7 +64,13 @@ export default {
     <p>{{ info.title || info.name }}</p>
     <p>{{ info.original_title || info.original_name }}</p>
     <p>{{ getLanguage }}</p>
-    <p>{{ info.vote_average }}</p>
+    <p>
+      
+    <font-awesome-icon icon="fa-solid fa-star" v-for="n in filmRank()"/>
+
+    <font-awesome-icon icon="fa-regular fa-star" v-for="n in 5-filmRank()"/>
+
+    </p>
     <country-flag :country= getLanguage size='big'/>
         
   </div>
