@@ -53,8 +53,8 @@ export default {
 
 <template>
     <div> 
-        <p>{{ info.title }}</p>
-        <p>{{ info.original_title }}</p>
+        <p>{{ info.title || info.name }}</p>
+        <p>{{ info.original_title || info.original_name }}</p>
         <p>{{ getLanguage }}</p>
         <p>{{ info.vote_average }}</p>
         <country-flag :country= getLanguage size='big'/>

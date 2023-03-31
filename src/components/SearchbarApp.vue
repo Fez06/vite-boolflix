@@ -65,13 +65,16 @@ export default {
                 console.log(response)
                 console.log(this.store.filteredSeries)
                 console.log(this.finSearch)
-
-                //return this.finSearch
+                console.log('qui sotto la lista unita')
+                console.log(this.listaCompleta)
+                
             })
 
             // let finSearch = [this.store.filteredMovies.concat(this.store.filteredSeries)]
-            // return [finSearch]
-
+            // return [finSearch]    
+        },
+        listaCompleta() {
+            return this.finSearch = [...this.store.filteredMovies, ...this.store.filteredSeries]
             
         }
     }
@@ -86,12 +89,12 @@ export default {
     </div>
 
     <ul>
-        <li v-for="(film,index) in this.store.filteredMovies">
+        <li v-for="(film,index) in listaCompleta">
             <CardsApp :info="film"/>
         </li>
-        <li v-for="(film,index) in this.store.filteredSeries">
+        <!-- <li v-for="(film,index) in this.store.filteredSeries">
             <CardsApp :info="film"/>
-        </li>
+        </li> -->
     </ul>
 </template>
 
