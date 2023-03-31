@@ -1,13 +1,15 @@
 <script >
 import { store } from '../store'
 import axios from 'axios';
+import CountryFlag from 'vue-country-flag-next'
 
 import CardsApp from './CardsApp.vue';
 
 export default {
     name: 'searchApp',
     components: {
-        CardsApp
+        CardsApp,
+        CountryFlag
     },
     data() {
         return {
@@ -24,7 +26,7 @@ export default {
     },
     computed: {
         search() {
-            //console.log(store.apiKey)
+            console.log(store.apiKey)
             console.log(this.store.searchKey)
             axios.get(this.store.apiUrl, {
                 params: {
@@ -32,11 +34,45 @@ export default {
                     query: this.store.searchKey
                 }
             }).then(response => {
-                console.log('chiamata effettuata')
+                console.log('chiamata effettuata film')
                 this.store.filteredMovies = response.data.results
                 console.log(response)
                 console.log(this.store.filteredMovies)
             })
+
+            // for (url in this.store.allUrl) {
+            //     axios.get(url, {
+            //     params: {
+            //         api_key:this.store.apiKey,
+            //         query: this.store.searchKey
+            //     }
+            // }).then(response => {
+            //     console.log('chiamata effettuata')
+            //     this.store.filteredMovies += response
+            //     console.log(response)
+            //     console.log(this.store.filteredMovies)
+            // })
+            // };
+
+            axios.get(this.store.apiUrlSeries, {
+                params: {
+                    api_key:this.store.apiKey,
+                    query: this.store.searchKey
+                }
+            }).then(response => {
+                console.log('chiamata effettuata serie')
+                this.store.filteredSeries = response.data.results
+                console.log(response)
+                console.log(this.store.filteredSeries)
+                console.log(this.finSearch)
+
+                //return this.finSearch
+            })
+
+            // let finSearch = [this.store.filteredMovies.concat(this.store.filteredSeries)]
+            // return [finSearch]
+
+            
         }
     }
 }
@@ -53,7 +89,9 @@ export default {
         <li v-for="(film,index) in this.store.filteredMovies">
             <CardsApp :info="film"/>
         </li>
-        
+        <li v-for="(film,index) in this.store.filteredSeries">
+            <CardsApp :info="film"/>
+        </li>
     </ul>
 </template>
 
