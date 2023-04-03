@@ -75,19 +75,26 @@ export default {
   width: 100%;
   height: 513px;
   overflow-y: hidden;
-
+  .poster {
+    
+  }
   .poster:hover {
     display: none;
   }
   
+  
   .info {
     margin-top: 30px;
     padding: 0 5px;
+    
+    
     div {
       margin-top: 15px;
     }
     
   }
+
+  
 
 
 }

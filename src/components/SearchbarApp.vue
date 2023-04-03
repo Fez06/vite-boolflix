@@ -1,6 +1,6 @@
 <script >
 import { store } from '../store'
-import axios from 'axios';
+//import axios from 'axios';
 import CountryFlag from 'vue-country-flag-next'
 
 import CardsApp from './CardsApp.vue';
@@ -25,39 +25,39 @@ export default {
         
     },
     computed: {
-        search() {
-            console.log(store.apiKey)
-            console.log(this.store.searchKey)
-            axios.get(this.store.apiUrl, {
-                params: {
-                    api_key:this.store.apiKey,
-                    query: this.store.searchKey
-                }
-            }).then(response => {
-                console.log('chiamata effettuata film')
-                this.store.filteredMovies = response.data.results
-                console.log(response)
-                console.log(this.store.filteredMovies)
-            })
+        // search() {
+        //     console.log(store.apiKey)
+        //     console.log(this.store.searchKey)
+        //     axios.get(this.store.apiUrl, {
+        //         params: {
+        //             api_key:this.store.apiKey,
+        //             query: this.store.searchKey
+        //         }
+        //     }).then(response => {
+        //         console.log('chiamata effettuata film')
+        //         this.store.filteredMovies = response.data.results
+        //         console.log(response)
+        //         console.log(this.store.filteredMovies)
+        //     })
 
 
-            axios.get(this.store.apiUrlSeries, {
-                params: {
-                    api_key:this.store.apiKey,
-                    query: this.store.searchKey
-                }
-            }).then(response => {
-                console.log('chiamata effettuata serie')
-                this.store.filteredSeries = response.data.results
-                console.log(response)
-                console.log(this.store.filteredSeries)
-                console.log(this.finSearch)
-                console.log('qui sotto la lista unita')
-                console.log(this.listaCompleta)
+        //     axios.get(this.store.apiUrlSeries, {
+        //         params: {
+        //             api_key:this.store.apiKey,
+        //             query: this.store.searchKey
+        //         }
+        //     }).then(response => {
+        //         console.log('chiamata effettuata serie')
+        //         this.store.filteredSeries = response.data.results
+        //         console.log(response)
+        //         console.log(this.store.filteredSeries)
+        //         console.log(this.finSearch)
+        //         console.log('qui sotto la lista unita')
+        //         console.log(this.listaCompleta)
                 
-            })
+        //     })
  
-        },
+        // },
         listaCompleta() {
             return this.finSearch = [...this.store.filteredMovies, ...this.store.filteredSeries]
         }
@@ -69,15 +69,15 @@ export default {
 <template>
     <div>
         <input type="text" placeholder="cerca un film o una serie" v-model="store.searchKey">
-        <button @click="search">search</button>
+        <button @click="$emit('ricerca')">search</button>
     </div>
 
-    <ul>
+    <!-- <ul>
         <li v-for="(film,index) in listaCompleta">
             <CardsApp :info="film"/>
         </li>
     
-    </ul>
+    </ul> -->
 </template>
 
 <style lang='scss' scoped>
