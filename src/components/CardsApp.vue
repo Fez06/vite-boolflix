@@ -64,8 +64,11 @@ export default {
 
         <font-awesome-icon icon="fa-regular fa-star" v-for="n in 5-filmRank()"/>
       </div>
-      Origine:
-      <country-flag :country= getLanguage size='big'/>
+      <div>
+        Origine:
+        <country-flag class="bandiera" :country= getLanguage size='big'/>
+      </div>
+      
       <div>Trama: {{ info.overview }}</div>
     </div>      
   </div>
@@ -90,7 +93,11 @@ export default {
     margin-top: 30px;
     padding: 0 5px;
     
-    
+    .bandiera {
+      
+      vertical-align: middle;
+    }
+
     div {
       margin-top: 15px;
     }
