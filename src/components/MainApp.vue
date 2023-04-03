@@ -43,11 +43,11 @@ ul {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: space-between;
     
     li {
-        border: 1px solid green;
-        width: 17%;
+        margin: 20px 30px;
+        width: 16%;
         text-align: center;
     }
 }

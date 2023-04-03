@@ -53,16 +53,21 @@ export default {
     try() {
       console.log('prova')
     }
-  }}
+  }
+}
 </script>
 
 <template>
   <div class="bg">
+    <div class="header">
+      <div class="box">
+        <h1>BOOLFLIX</h1>
+        <SearchbarApp @ricerca="search" />
+      </div>
+    </div>
+
     <div class="container">
-      <header>
-        <h2>BOOLFLIX</h2>
-        <SearchbarApp @ricerca="search"/>
-      </header>
+
 
       <MainApp />
     </div>
@@ -75,14 +80,34 @@ export default {
   width: 100vw;
   height: 100vh;
   overflow-y: auto;
+  background-image: url(../public/boolflixSfondo2.avif);
+  background-repeat: no-repeat;
+  background-size: cover;
 
-  
+
+  .header {
+    background-color: rgb(84, 28, 119);
+
+    .box {
+      height: 70px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 30px;
+      width: 80%;
+      margin: auto;
+    }
+
+    h1 {
+      color: beige;
+    }
+  }
 
   .container {
     margin: auto;
     width: 80%;
 
+
   }
-  
-}
-</style>
+
+}</style>

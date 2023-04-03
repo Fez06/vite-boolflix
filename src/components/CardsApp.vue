@@ -57,14 +57,15 @@ export default {
     <div class="info">
       <div>Titolo: {{ info.title || info.name }}</div>
       <div>Titolo originale: {{ info.original_title || info.original_name }}</div>
-      <!-- <p>{{ getLanguage }}</p> -->
+      
       <div>
         Voto: 
         <font-awesome-icon icon="fa-solid fa-star" v-for="n in filmRank()"/>
 
         <font-awesome-icon icon="fa-regular fa-star" v-for="n in 5-filmRank()"/>
       </div>
-      <!-- <country-flag :country= getLanguage size='big'/> -->
+      Origine:
+      <country-flag :country= getLanguage size='big'/>
       <div>Trama: {{ info.overview }}</div>
     </div>      
   </div>
@@ -75,8 +76,10 @@ export default {
   width: 100%;
   height: 513px;
   overflow-y: hidden;
+  background-color: darkslategray;
   .poster {
-    
+    width: 100%;
+    overflow: hidden;
   }
   .poster:hover {
     display: none;
@@ -93,9 +96,6 @@ export default {
     }
     
   }
-
-  
-
 
 }
 </style>

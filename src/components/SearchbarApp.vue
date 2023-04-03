@@ -67,8 +67,8 @@ export default {
 </script>
 
 <template>
-    <div>
-        <input type="text" placeholder="cerca un film o una serie" v-model="store.searchKey">
+    <div class="ricercaFilm">
+        <input type="text" placeholder="cerca un film o una serie TV!" v-model="store.searchKey">
         <button @click="$emit('ricerca')">search</button>
     </div>
 
@@ -81,17 +81,30 @@ export default {
 </template>
 
 <style lang='scss' scoped>
-ul {
-    
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    
-    
-    li {
-        border: 1px solid green;
-        width: 17%;
+
+.ricercaFilm {
+    input {
+        height: 30px;
+        width: 200px;
     }
+
+    button {
+        height: 30px;
+    }
+    
 }
+
+// ul {
+    
+//     list-style: none;
+//     display: flex;
+//     flex-wrap: wrap;
+//     justify-content: space-evenly;
+    
+    
+//     li {
+//         border: 1px solid green;
+//         width: 17%;
+//     }
+// }
 </style>
