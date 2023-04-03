@@ -61,18 +61,17 @@ export default {
       <img alertMissPic :src='this.store.baseUrlPic + this.store.picSize + info.poster_path' alt="film poster">
     </div>
 
-    <p>{{ info.title || info.name }}</p>
-    <p>{{ info.original_title || info.original_name }}</p>
-    <p>{{ getLanguage }}</p>
-    <p>
-      
-    <font-awesome-icon icon="fa-solid fa-star" v-for="n in filmRank()"/>
+    <div class="info">
+      <p>{{ info.title || info.name }}</p>
+      <p>{{ info.original_title || info.original_name }}</p>
+      <p>{{ getLanguage }}</p>
+      <p>
+        <font-awesome-icon icon="fa-solid fa-star" v-for="n in filmRank()"/>
 
-    <font-awesome-icon icon="fa-regular fa-star" v-for="n in 5-filmRank()"/>
-
-    </p>
-    <country-flag :country= getLanguage size='big'/>
-        
+        <font-awesome-icon icon="fa-regular fa-star" v-for="n in 5-filmRank()"/>
+      </p>
+      <country-flag :country= getLanguage size='big'/>
+    </div>      
   </div>
 </template>
 

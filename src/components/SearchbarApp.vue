@@ -85,7 +85,7 @@ export default {
 <template>
     <div>
         <input type="text" placeholder="cerca un film o una serie" v-model="store.searchKey">
-        <button @click="search">search</button>
+        <button @click="search" >search</button>
     </div>
 
     <ul>
@@ -100,12 +100,15 @@ export default {
 
 <style lang='scss' scoped>
 ul {
+    
     list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    
     li {
         border: 1px solid green;
-        width: 380px;
-        padding: 10px;
-        margin: 10px;
+        width: 17%;
         text-align: center;
     }
 }
