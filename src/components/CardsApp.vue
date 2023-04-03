@@ -18,10 +18,7 @@ export default {
   
   props: {
     info: Object
-    // title: String,
-    // originalTitle: String,
-    // lang: String,
-    // vote: ''
+    
   },
   computed: {
     getLanguage() {
@@ -42,11 +39,7 @@ export default {
     }
   },
   methods: {
-    // alertMissPic() {
-    //   if (info.poster_path = null) {
-    //     console.log(`${info.title || info.name} non ha un poster`)
-    //   }
-    // }
+   
     filmRank() {
       return Math.ceil(this.info.vote_average/2)
       

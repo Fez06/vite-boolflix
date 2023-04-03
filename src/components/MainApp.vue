@@ -1,30 +1,14 @@
-<script >
-import { store } from '../store'
-import axios from 'axios';
-import CountryFlag from 'vue-country-flag-next'
-
-import CardsApp from './CardsApp.vue';
+<!-- <script>
 
 export default {
-    name: 'searchApp',
-    components: {
-        CardsApp,
-        CountryFlag
-    },
+    name: 'main',
     data() {
         return {
-            store,
-            
 
         }
     },
+
     methods: {
-        debug() {
-            console.log(this.store.searchKey);
-        }
-        
-    },
-    computed: {
         search() {
             console.log(store.apiKey)
             console.log(this.store.searchKey)
@@ -40,6 +24,19 @@ export default {
                 console.log(this.store.filteredMovies)
             })
 
+            // for (url in this.store.allUrl) {
+            //     axios.get(url, {
+            //     params: {
+            //         api_key:this.store.apiKey,
+            //         query: this.store.searchKey
+            //     }
+            // }).then(response => {
+            //     console.log('chiamata effettuata')
+            //     this.store.filteredMovies += response
+            //     console.log(response)
+            //     console.log(this.store.filteredMovies)
+            // })
+            // };
 
             axios.get(this.store.apiUrlSeries, {
                 params: {
@@ -56,31 +53,23 @@ export default {
                 console.log(this.listaCompleta)
                 
             })
- 
+
+            // let finSearch = [this.store.filteredMovies.concat(this.store.filteredSeries)]
+            // return [finSearch]    
         },
-        listaCompleta() {
-            return this.finSearch = [...this.store.filteredMovies, ...this.store.filteredSeries]
-            
-        }
     }
 }
-
 </script>
 
 <template>
-    <div>
-        <input type="text" placeholder="cerca un film o una serie" v-model="store.searchKey">
-        <button @click="search">search</button>
+    <div @ricerca="search">
+        <ul>
+            <li v-for="(film,index) in listaCompleta">
+                <CardsApp :info="film"/>
+            </li>
+        </ul>
     </div>
-
-    <ul>
-        <li v-for="(film,index) in listaCompleta">
-            <CardsApp :info="film"/>
-        </li>
-        <!-- <li v-for="(film,index) in this.store.filteredSeries">
-            <CardsApp :info="film"/>
-        </li> -->
-    </ul>
+    
 </template>
 
 <style lang='scss' scoped>
@@ -97,4 +86,4 @@ ul {
         text-align: center;
     }
 }
-</style>
+</style> -->
