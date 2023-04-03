@@ -49,25 +49,46 @@ export default {
 </script>
 
 <template>
-  <div> 
-    <div>
+  <div class="card"> 
+    <div class="poster">
       <img alertMissPic :src='this.store.baseUrlPic + this.store.picSize + info.poster_path' alt="film poster">
     </div>
 
     <div class="info">
-      <p>{{ info.title || info.name }}</p>
-      <p>{{ info.original_title || info.original_name }}</p>
-      <p>{{ getLanguage }}</p>
-      <p>
+      <div>Titolo: {{ info.title || info.name }}</div>
+      <div>Titolo originale: {{ info.original_title || info.original_name }}</div>
+      <!-- <p>{{ getLanguage }}</p> -->
+      <div>
+        Voto: 
         <font-awesome-icon icon="fa-solid fa-star" v-for="n in filmRank()"/>
 
         <font-awesome-icon icon="fa-regular fa-star" v-for="n in 5-filmRank()"/>
-      </p>
-      <country-flag :country= getLanguage size='big'/>
+      </div>
+      <!-- <country-flag :country= getLanguage size='big'/> -->
+      <div>Trama: {{ info.overview }}</div>
     </div>      
   </div>
 </template>
 
-<style scoped>
+<style lang='scss' scoped>
+.card {
+  width: 100%;
+  height: 513px;
+  overflow-y: hidden;
 
+  .poster:hover {
+    display: none;
+  }
+  
+  .info {
+    margin-top: 30px;
+    padding: 0 5px;
+    div {
+      margin-top: 15px;
+    }
+    
+  }
+
+
+}
 </style>

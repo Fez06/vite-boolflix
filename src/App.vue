@@ -1,7 +1,7 @@
 <script>
 import {store} from './store'
 import SearchbarApp from './components/SearchbarApp.vue';
-import MainApp from './components/MainApp.vue';
+// import MainApp from './components/MainApp.vue';
 
 
 export default {
@@ -12,7 +12,7 @@ export default {
   },
   components: {
     SearchbarApp,
-    MainApp
+    // MainApp
   }
 }
 </script>

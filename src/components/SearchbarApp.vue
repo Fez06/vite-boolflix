@@ -60,7 +60,6 @@ export default {
         },
         listaCompleta() {
             return this.finSearch = [...this.store.filteredMovies, ...this.store.filteredSeries]
-            
         }
     }
 }
@@ -77,9 +76,7 @@ export default {
         <li v-for="(film,index) in listaCompleta">
             <CardsApp :info="film"/>
         </li>
-        <!-- <li v-for="(film,index) in this.store.filteredSeries">
-            <CardsApp :info="film"/>
-        </li> -->
+    
     </ul>
 </template>
 
@@ -91,10 +88,10 @@ ul {
     flex-wrap: wrap;
     justify-content: space-evenly;
     
+    
     li {
         border: 1px solid green;
         width: 17%;
-        text-align: center;
     }
 }
 </style>
